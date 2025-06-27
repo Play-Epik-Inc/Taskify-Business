@@ -1,4 +1,4 @@
-name: Build Electron App for Windows
+name: Build Taskify Business for Windows
 
 on:
   push:

@@ -1,6 +1,14 @@
 const { ipcRenderer } = require('electron')
 
-ipcRenderer.on('populate-input', (event, taskText) => {document.getElementById('input').value = taskText;})
+function OnLoad(){
+  setTimeout(() =>{
+    document.getElementById('loading').style.animation = "FadeOut 0.5s linear forwards";
+  }, 500)
+  setTimeout(() =>{
+    document.getElementById('loading').style.display = "none";
+    document.getElementById('main').style.animation = "FadeIn 0.5s linear forwards";
+  }, 1000);
+}
 
 function submitInput() {
   //NEW TASK NAME
@@ -26,3 +34,8 @@ function DeleteTask(){
 }
 
 function Quit() {window.close();}
+
+ipcRenderer.on('retrieveTaskName', (event, name) =>{
+  document.getElementById('startingText').innerHTML = `Modify the proprieties of the actual selected task (${name}).`
+  document.getElementById('inputName').value = name;
+});

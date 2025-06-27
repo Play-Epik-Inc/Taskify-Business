@@ -1,4 +1,4 @@
-name: Build Electron App for Linux
+name: Build Taskify Business for Linux
 
 on:
   push:

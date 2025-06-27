@@ -55,11 +55,28 @@
                 <p style="margin-top: -20px;" id="latestversion">Latest version avaible: </p>
                 <h2 id="build">Build:</h2>
                 <hr>
-                <h1 style="text-align: center; font-family: 'Excon', sans-serif;"><img src="assets/_chart.png" draggable="false" width="20px" height="20px"> Chart:</h1>
+                <h1 style="font-size: 50px; font-family: 'Excon', sans-serif;"><img src="assets/_chart.png" draggable="false" width="35px" height="35px"> Charts:</h1>
                 <h2><img src="assets/_createTask.png" draggable="false" height="20px" width="20px">  Task created: <p style="display: inline;"id="taskCreated"></p></h2>
                 <h2><img src="assets/_completeIcon.png" draggable="false" height="20px" width="20px">  Task completed: <p style="display: inline;" id="taskCompleted"></p></h2>
                 <canvas id="tasksChart" width="400" height="150" style="background: #232323; border-radius: 10px; margin-bottom: 30px;"></canvas>
-                <h3 class="tip"><img src="assets/_tip.png" height="20px" width="20px"> <p style="display: inline; color: orange;">TIP: </p> Click on "Task Completed" or "Task Created" to see the curve of a single element.</h3>
+                <h1 style="font-family: 'Excon', sans-serif; font-size: 35px; text-align: center;">Options:</h1>
+                <label for="colorTaskCreated" style="margin-left: 20px;">Color curve <i>Task Created:</i></label>
+                <select name="selectColor" id="colorTaskCreated" style="width: 25%;">
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+                <label for="colorTaskCompleted" style="margin-left: 20px;">Color curve <i>Task Completed:</i></label>
+                <select name="selectColor" id="colorTaskCompleted" style="width: 25%;">
+                    <option value="green">Green</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+                <h3 class="tip"><img src="assets/_tip.png" height="20px" width="20px" draggable="false"><p style="display: inline; color: orange;">TIP: </p> Click on "Task Completed" or "Task Created" to see the curve of a single element.</h3>
                 <hr>
                 <h1 style="font-size: 50px; font-family: 'Excon', sans-serif;"><img src="assets/_settings.png" draggable="false" height="35px" width="35px" id="settings"> Settings:</h1>
                 <div class="settings">

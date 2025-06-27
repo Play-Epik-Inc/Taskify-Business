@@ -2,32 +2,45 @@ body{background-color: #1a1a1a;}
 
 /*LOADER BY: https://cssloaders.github.io*/
 .loader {
-    margin-top: 150px;
-    width: 48px;
-    height: 48px;
-    border: 3px solid #FFF;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+  width: 20px;
+  height: 12px;
+  display: block;
+  margin: auto;
+  position: relative;
+  border-radius: 4px;
+  color: #FFF;
+  background: currentColor;
+  box-sizing: border-box;
+  animation: animloader 0.6s 0.3s ease infinite alternate;
+}
+
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 20px;
+  height: 12px;
+  background: currentColor;
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  right: 110%;
+  animation: animloader  0.6s ease infinite alternate;
 }
 
 .loader::after {
-    content: '';  
-    position: absolute;
-    box-sizing: border-box;
-    left: 20px;
-    top: 31px;
-    border: 10px solid transparent;
-    border-right-color: #FFF;
-    transform: rotate(-40deg);
+  left: 110%;
+  right: auto;
+  animation-delay: 0.6s;
 }
-  
-@keyframes rotation {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+
+@keyframes animloader {
+  0% {
+    width: 20px;
+  }
+  100% {
+    width: 48px;
+  }
 }
 
 /*END LOADER*/

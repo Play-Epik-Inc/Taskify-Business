@@ -1,4 +1,4 @@
-name: Build Electron App for Windows Arm64
+name: Build Taskify Business for Windows arm64
 
 on:
   push:

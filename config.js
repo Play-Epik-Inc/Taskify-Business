@@ -5,7 +5,7 @@ const fs = require('fs')
 let mainWindow = null
 let categoryModifyTask, indexModifyTask
 const dataPath = path.join(app.getPath('userData'), 'todos.json')
-const DEBUG = true
+const DEBUG = false
 
 let todos = {
   softwareComponents: [],
@@ -15,7 +15,9 @@ let todos = {
   autoClose: false,
   joinBeta: true,
   companyName: undefined,
-  chartData: { labels: [], created: [], completed: [] }
+  chartData: { labels: [], created: [], completed: [] },
+  taskCompletedColor : "green",
+  taskCreatedColor: "blue"
 }
 
 function loadTodosFromDisk() {
@@ -29,6 +31,8 @@ function loadTodosFromDisk() {
       todos.joinBeta = todos.joinBeta || true
       todos.companyName = todos.companyName || undefined
       todos.chartData = todos.chartData || { labels: [], created: [], completed: [] }
+      todos.taskCompletedColor = todos.taskCompletedColor || "green"
+      todos.taskCreatedColor = todos.taskCreatedColor || "blue"
     }
   } catch (err) {
     console.error(err)
@@ -40,7 +44,9 @@ function loadTodosFromDisk() {
       autoClose: false,
       joinBeta: true,
       companyName: undefined,
-      chartData: { labels: [], created: [], completed: [] }
+      chartData: { labels: [], created: [], completed: [] },
+      taskCompletedColor : "green",
+      taskCreatedColor: "blue"
     }
   }
 }
@@ -97,12 +103,6 @@ function createWindow() {
     categoryModifyTask = category
     indexModifyTask = index
     createInputPopUp()
-    const task = todos[categoryModifyTask][indexModifyTask]
-    if (task) {
-      setTimeout(() => {
-        mainWindow.webContents.send('populate-input', task.text)
-      }, 500)
-    }
   })
 
   ipcMain.on('checkForDebug', (event) => {event.returnValue = DEBUG;});
@@ -197,4 +197,11 @@ function createInputPopUp() {
   })
   inputWindow.setMenu(null)
   inputWindow.loadFile('src/popUp.html')
+
+  const task = todos[categoryModifyTask][indexModifyTask];
+  if (task) {
+    inputWindow.webContents.once('did-finish-load', () => {
+      inputWindow.webContents.send('retrieveTaskName', task.text);
+    });
+  }
 }

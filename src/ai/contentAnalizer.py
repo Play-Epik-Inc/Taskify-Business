@@ -3,6 +3,7 @@ import json
 import re
 
 def parse_input(text):
+    #CHECK FOR '/CREATE' COMMAND
     multi_match = re.match(
         r"/create\d+\s+([^\s]+(?:\s*,\s*[^\s]+)*)\s+([^\s]+(?:\s*,\s*[^\s]+)*)\s+to\s+newer\s+([^\s]+(?:\s*,\s*[^\s]+)*)(?:\s+!category\s+([^\s]+(?:\s*,\s*[^\s]+)*))?",
         text, re.IGNORECASE
@@ -76,23 +77,33 @@ def parse_input(text):
         return '<br><b>Commands for AI Assistant:</b> <br><br> <b>/create</b> = Create a Task or a list of Tasks (<b>add a number in front of the command "/create"</b>), the syntax is: <i>/create TaskName previousVersion to newer newerVersion !category maintenace/out</i> <br><br> <b>/modify</b> = Modify a Task, the syntax is: <i>/modify taskName !category maintenance/out <br><br> <b>/clear</b> or <b>/cls</b> = Clear the chat.'
     
     #CHECK FOR HELLO COMBINATION
-    hello_match = re.match(
-        r"hello", text, re.IGNORECASE
-    )
+    hello_match = re.match(r"hello", text, re.IGNORECASE)
 
     if(hello_match):
         return "HI! Welcome to AI Assistant of Taskify Business! write /help for more commands!"
     
-    cls_match = re.match(
-        r"/cls", text, re.IGNORECASE
-    )
+    #CHECK FOR '/CLEAR' OR '/CLS' COMMAND
+    cls_match = re.match(r"/cls", text, re.IGNORECASE)
 
-    clear_match = re.match(
-        r"/clear", text, re.IGNORECASE
-    )
+    clear_match = re.match(r"/clear", text, re.IGNORECASE)
 
     if(clear_match or cls_match):
         return 'cleared'
+    
+    delete_match = re.match(r"/delete\s+([^\s]+)\s+!category\s+([^\s]+)", text, re.IGNORECASE)
+
+    if(delete_match):
+        name = delete_match.group(1)
+        category_raw = (delete_match.group(2) or "").lower()
+        if category_raw == "maintenance":
+            category = "softwareComponents"
+        else:
+            category = "fuoriManutenzione"
+        return{
+            "name": name,
+            "category": category,
+            "type": 1
+        }
     else:
         return 'Sorry, I am unable to elaborating your request. if you need more help, type /help.'
 

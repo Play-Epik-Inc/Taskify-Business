@@ -3,32 +3,40 @@
     <head>
         <!--SETTINGS-->
         <meta charset="UTF-8">
-        <title>Taskify Business - Modify Task</title>
+        <title>Taskify Business - Edit Task</title>
         <link rel="stylesheet" href="css/popUp.css">
         <link href="https://api.fontshare.com/v2/css?f[]=supreme@1&display=swap" rel="stylesheet">
         <link href="https://api.fontshare.com/v2/css?f[]=excon@1&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <h1>Modify Task <p style="display: inline;" class="special">Proprieties:</p></h1>
-        <div class="modify-task-row">
-            <label for="inputName" style="color: white; font-family: 'Supreme', sans-serif;">Task Name: </label>
-            <input type="text" id="inputName" placeholder="Enter new task name">
-        </div>
-        <br>
-        <div class="modify-task-row">
-            <label for="inputPV" style="color: white; font-family: 'Supreme', sans-serif;">Task Previous Version: </label>
-            <input type="text" id="inputPV" placeholder="Enter previous version">
-        </div>
-        <br>
-        <div class="modify-task-row">
-            <label for="inputNV" style="color: white; font-family: 'Supreme', sans-serif;">Task Newer Version: </label>
-            <input type="text" id="inputNV" placeholder="Enter next version">
-        </div>
-        <br> <br>
-        <div class="modify-task-row">
-            <button onclick="submitInput()" style="background-color: #009dff;">Edit Task<img src="assets/_edit.png" width="20px" height="20px" style="margin-top: 2px;"></button>
-            <button onclick="DeleteTask()" style="background-color: red;"><img src="assets/_delete.png" width="20px" height="20px" style="margin-top: 2px;"> Delete Task</button>
-            <button onclick="Quit()" style="background-color: red;"><img src="assets/_close.png" width="20px" height="20px" style="margin-top: 2px;"> Cancel</button>
+    <body onload="OnLoad()">
+        <center>
+            <div id="loading" style="display: block; margin-top: 130px;">
+                <span class="loader"></span>
+            </div>
+        </center>
+        <div id="main" style="opacity: 0;">
+            <h1 style="font-size: 45px; margin-top: -5px;"><img src="assets/_edit.png" draggable="false" width="30px" height="30px"> Edit Task <p style="display: inline; font-style: inherit; font-family: 'Excon', sans-serif;" class="special">Proprieties:</p></h1>
+            <h4 style="font-weight: 400; margin-top: -30px; font-family: 'Excon', sans-serif;" id="startingText">Modify the proprieties of the actual selected task.</h4>
+            <div class="modify-task-row">
+                <label for="inputName" style="color: white; font-family: 'Excon', sans-serif;">Task Name: </label>
+                <input type="text" id="inputName" placeholder="Task Name..." title="Enter the new Task Name">
+            </div>
+            <br>
+            <div class="modify-task-row">
+                <label for="inputPV" style="color: white; font-family: 'Excon', sans-serif;">Task Previous Version: </label>
+                <input type="text" id="inputPV" placeholder="Previous Version..." title="Optional">
+            </div>
+            <br>
+            <div class="modify-task-row">
+                <label for="inputNV" style="color: white; font-family: 'Excon', sans-serif;">Task Newer Version: </label>
+                <input type="text" id="inputNV" placeholder="Newer Version..." title="Optional">
+            </div>
+            <br>
+            <div class="modify-task-row" style="justify-content: end;" id="buttons">
+                <button onclick="submitInput()" style="background-color: #009dff;"><img src="assets/_edit.png" width="20px" height="20px" style="margin-top: 2px;" draggable="false" title="Modify"></button>
+                <button onclick="DeleteTask()" style="background-color: red;"><img src="assets/_delete.png" width="20px" height="20px" style="margin-top: 2px;" draggable="false" title="Delete"></button>
+                <button onclick="Quit()" style="background-color: red;"><img src="assets/_close.png" width="20px" height="20px" style="margin-top: 2px; margin-left: 1px;" draggable="false" title="Close"></button>
+            </div>
         </div>
     </body>
     <script src="js/popUp.js"></script>

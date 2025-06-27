@@ -30,9 +30,4 @@ By providing a clear, centralized interface, Maintenance Scheduler streamlines p
 Follow the steps below to set up Taskify Business locally.
 
 1. **Download the Setup from Releases , you can choose among: Windows, macOS and Linux!**
-   
-<<<<<<< main
    [![GitHub release](https://img.shields.io/github/v/release/Play-Epik-Inc/Taskify-Business?color=009dff)](https://github.com/Play-Epik-Inc/Taskify-Business/releases/latest)
-=======
-   [![GitHub release](https://img.shields.io/github/v/release/Play-Epik-Inc/Taskify-Business?color=009dff)](https://github.com/Play-Epik-Inc/Taskify-Business/releases/latest)
->>>>>>> dev

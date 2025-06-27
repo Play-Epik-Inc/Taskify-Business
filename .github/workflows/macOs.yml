@@ -1,4 +1,4 @@
-name: Build Electron App for macOS
+name: Build Taskify Business for macOS
 
 on:
   push:
