@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link href="https://api.fontshare.com/v2/css?f[]=supreme@1&display=swap" rel="stylesheet">
         <link href="https://api.fontshare.com/v2/css?f[]=excon@1&display=swap" rel="stylesheet">
+        <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1&display=swap" rel="stylesheet">
     </head>
     <body onload="OnLoad()">
         <div class="container" id="app">
@@ -60,25 +61,29 @@
                 <h2><img src="assets/_completeIcon.png" draggable="false" height="20px" width="20px">  Task completed: <p style="display: inline;" id="taskCompleted"></p></h2>
                 <canvas id="tasksChart" width="400" height="150" style="background: #232323; border-radius: 10px; margin-bottom: 30px;"></canvas>
                 <h1 style="font-family: 'Excon', sans-serif; font-size: 35px; text-align: center;">Options:</h1>
-                <label for="colorTaskCreated" style="margin-left: 20px;">Color curve <i>Task Created:</i></label>
-                <select name="selectColor" id="colorTaskCreated" style="width: 25%;">
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
-                    <option value="orange">Orange</option>
-                    <option value="yellow">Yellow</option>
-                </select>
-                <label for="colorTaskCompleted" style="margin-left: 20px;">Color curve <i>Task Completed:</i></label>
-                <select name="selectColor" id="colorTaskCompleted" style="width: 25%;">
-                    <option value="green">Green</option>
-                    <option value="red">Red</option>
-                    <option value="blue">Blue</option>
-                    <option value="orange">Orange</option>
-                    <option value="yellow">Yellow</option>
-                </select>
-                <h3 class="tip"><img src="assets/_tip.png" height="20px" width="20px" draggable="false"><p style="display: inline; color: orange;">TIP: </p> Click on "Task Completed" or "Task Created" to see the curve of a single element.</h3>
+                <center>
+                    <div class="selections">
+                        <label for="colorTaskCreated" style="margin-left: 20px;">Color curve <i>Task Created:</i> </label>
+                        <select name="selectColor" id="colorTaskCreated" style="width: 25%;">
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="orange">Orange</option>
+                            <option value="yellow">Yellow</option>
+                        </select> <br> <br>
+                        <label for="colorTaskCompleted" style="margin-left: 20px;">Color curve <i>Task Completed:</i> </label>
+                        <select name="selectColor" id="colorTaskCompleted" style="width: 25%;">
+                            <option value="green">Green</option>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="orange">Orange</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                    </div>
+                </center>
+                <h3 class="tip" style="font-weight: 300;"><img src="assets/_tip.png" height="20px" width="20px" draggable="false"><p style="display: inline; color: orange;"><b style="font-weight: 800;">TIP:</b>  </p> Click on <i style="font-weight: 800;">Task Completed </i> or <i style="font-weight: 800;">Task Created</i> to see the curve of a single element.</h3>
                 <hr>
-                <h1 style="font-size: 50px; font-family: 'Excon', sans-serif;"><img src="assets/_settings.png" draggable="false" height="35px" width="35px" id="settings"> Settings:</h1>
+                <h1 style="font-size: 50px; font-family: 'Excon', sans-serif;"><img src="assets/_settings.png" draggable="false" height="35px" width="35px"> Settings:</h1>
                 <div class="settings">
                     <h2 style="text-align: center; font-family: 'Excon', sans-serif;"><img src="assets/_general.png" draggable="false" height="20px" width="20px"> General:</h2>
                     <div class="cleanSection">
@@ -89,9 +94,9 @@
                         <button id="cleanSectionBtn" class="cleanSectionBtn">Mark as Completed</button>
                     </div>
                     <br>
-                    <div class="cleanSection">
-                        <input id="nameCompany" type="text" required placeholder="Insert the new name of the Company..." style="width: 50%;" spellcheck="false">
-                        <button id="changeNameBtn" class="cleanSectionBtn">Change the name</button>
+                    <div class="cleanSection" id="settings">
+                        <input id="nameCompany" type="text" required placeholder="Insert the new name of the Company..." spellcheck="false">
+                        <button id="changeNameBtn" class="cleanSectionBtn">Change</button>
                     </div>
                     <br>
                     <input type="checkbox" id="checkbox" style="transform: scale(1.7);">
@@ -122,7 +127,7 @@
                 <h2 style="margin-top: -35px; font-family: 'Excon', sans-serif;" class="assistantText">AI Assistant <img src="assets/_betaIcon.png" height="40px" width="40px" style="margin-top: 10px;" draggable="false"></h2>
                 <div id="aiChatHistory" class="ai-chat-history"></div>
                 <div class="ai-chat-input-row">
-                    <input id="aiInput" type="text" placeholder="Write a message..." autocomplete="on" style="display: block;" spellcheck="false"/>
+                    <input id="aiInput" type="text" placeholder="Write a command..." autocomplete="on" style="display: block;" spellcheck="false"/>
                     <button id="aiSendBtn" style="font-family: 'Supreme', sans-serif; height: 100%;"><img src="assets/_send.png" height="15px" width="15px" draggable="false"></button>
                 </div>
             </div>

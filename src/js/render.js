@@ -220,12 +220,12 @@ window.todoManager = new class TodoManager {
         colorTCompletedBG = 'rgba(7,185,7,0.1)'
         break;
       case 'blue':
-        colorTCompleted = 'rgba(0,157,255,1)'; 
+        colorTCompleted = 'rgb(0, 157, 255)'; 
         colorTCompletedBG = 'rgba(0,157,255,0.1)'
         break;
       case 'orange':
+        colorTCompleted = 'rgba(255, 149, 0, 1)';
         colorTCompletedBG = 'rgba(255, 149, 0, 0.1)';
-        colorTCompleted = 'rgba(255, 149, 0, 1)'; 
         break;
       case 'yellow':
         colorTCompleted = 'rgba(255, 217, 0, 1)'; 
@@ -267,7 +267,7 @@ window.todoManager = new class TodoManager {
     taskCompletedColor = document.getElementById('colorTaskCompleted').value;
 
     ipcRenderer.send('save-todos', { ...this.todos, taskCreated, taskCompleted, autoClose, companyName, chartData, joinBeta, taskCompletedColor, taskCreatedColor });
-    document.title = 'Taskify Business - ' + companyName;
+    document.title = `Taskify Dashboard - ${companyName}`;
     this.renderList('softwareComponents', 'softwareList');
     this.renderList('fuoriManutenzione', 'fuoriList');
 
@@ -458,8 +458,7 @@ window.todoManager = new class TodoManager {
   handleScroll() {
     if (window.scrollY === 0) {
       document.getElementById('infoBox').style.display = "none";
-      document.getElementById("ibtn").style.display = "block";
-      document.getElementById('sbtn').style.display = "block";
+      toggleButtons(true);
       showBetaOptions(joinBeta);
     }
   }
@@ -510,28 +509,34 @@ window.todoManager = new class TodoManager {
 }();
 
 //OPEN INFO AND SETTINGS
+const buttons =[
+  info = document.getElementById('ibtn'),
+  settings = document.getElementById('sbtn'),
+  ai = document.getElementById('openSidebarBtn')
+];
+
 function openInfoBox(){
   document.getElementById('infoBox').style.display = 'block';
-  document.getElementById("ibtn").style.display = "none";
-  document.getElementById('sbtn').style.display = 'none';
-  document.getElementById('openSidebarBtn').style.display = "none";
   document.getElementById('infoBox').scrollIntoView({ behavior: 'smooth' });
+  toggleButtons(false);
 }
 
 function closeInfoBox(){
   document.getElementById('app').scrollIntoView({ behavior: 'smooth' });
   document.getElementById('infoBox').style.display = 'none';
-  document.getElementById("ibtn").style.display = "block";
-  document.getElementById('sbtn').style.display = 'block';
-  document.getElementById('openSidebarBtn').style.display = "block";
+  toggleButtons(false);
 }
 
 function openSettings(){
   document.getElementById('infoBox').style.display = 'block';
-  document.getElementById('ibtn').style.display = 'none';
-  document.getElementById('sbtn').style.display = 'none';
-  document.getElementById('openSidebarBtn').style.display = "none";
   document.getElementById('settings').scrollIntoView({behavior: 'smooth'});
+  toggleButtons(false);
+}
+
+function toggleButtons(value){
+  buttons.forEach(e  => {
+      e.style.display = (value) ? "block" : "none";
+  });
 }
 
 async function quitApplication() {

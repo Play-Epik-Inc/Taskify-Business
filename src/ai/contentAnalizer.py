@@ -17,6 +17,7 @@ def parse_input(text):
 
         max_len = max(len(names), len(prev_versions), len(next_versions), len(categories) if categories else 0)
         tasks = []
+
         for i in range(max_len):
             name = names[i] if i < len(names) else ""
             prev_version = prev_versions[i] if i < len(prev_versions) else ""
@@ -74,7 +75,11 @@ def parse_input(text):
             "category": category
         }
     elif (text == "/help"):
-        return '<br><b>Commands for AI Assistant:</b> <br><br> <b>/create</b> = Create a Task or a list of Tasks (<b>add a number in front of the command "/create"</b>), the syntax is: <i>/create TaskName previousVersion to newer newerVersion !category maintenace/out</i> <br><br> <b>/modify</b> = Modify a Task, the syntax is: <i>/modify taskName !category maintenance/out <br><br> <b>/clear</b> or <b>/cls</b> = Clear the chat.'
+        return '<br><b>Commands for AI Assistant:</b> <br><br> ' \
+        '<b>/create</b> = Create a Task or a list of Tasks (<b>add a number in front of the command "/create"</b>), the syntax is: <i>/create TaskName previousVersion to newer newerVersion !category maintenace/out</i> <br>' \
+        '<br> <b>/modify</b> = Modify a Task, the syntax is: <i>/modify taskName !category maintenance/out </i> <br>' \
+        '<br> <b>/clear</b> or <b>/cls</b> = Clear the chat. <br> ' \
+        '<br> <b>/delete</b> = Delete a task, the syntax is <i>/delete TaskName !category maintenance/out</i>.'
     
     #CHECK FOR HELLO COMBINATION
     hello_match = re.match(r"hello", text, re.IGNORECASE)
@@ -84,7 +89,6 @@ def parse_input(text):
     
     #CHECK FOR '/CLEAR' OR '/CLS' COMMAND
     cls_match = re.match(r"/cls", text, re.IGNORECASE)
-
     clear_match = re.match(r"/clear", text, re.IGNORECASE)
 
     if(clear_match or cls_match):
