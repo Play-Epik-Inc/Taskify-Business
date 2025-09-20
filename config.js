@@ -87,6 +87,19 @@ function createWindow() {
     return result.response === 0
   })
 
+    ipcMain.handle('new-version', async (event, message) => {
+    const result = await dialog.showMessageBox({
+      type: 'question',
+      buttons: ['Update Now', 'Cancel'],
+      defaultId: 1,
+      cancelId: 0,
+      message,
+      title: 'Taskify Business',
+      noLink: true
+    })
+    return result.response === 0
+  })
+
   ipcMain.handle('show-alert', async (event, message) => {
     await dialog.showMessageBox({
       type: 'info',

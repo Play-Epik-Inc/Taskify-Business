@@ -560,3 +560,10 @@ option{font-family: 'Supreme', sans-serif; color: #009dff;;}
 }
 
 #tipImage{padding-right: 5px;}
+
+.feedbackSelection{display: none;}
+
+#bug, #feedbackBtn{
+    cursor: pointer;
+    text-decoration: underline;
+}

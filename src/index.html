@@ -57,8 +57,8 @@
                 <h2 id="build">Build:</h2>
                 <hr>
                 <h1 style="font-size: 50px; font-family: 'Excon', sans-serif;"><img src="assets/_chart.png" draggable="false" width="35px" height="35px"> Charts:</h1>
-                <h2><img src="assets/_createTask.png" draggable="false" height="20px" width="20px">  Tasks created:<p style="display: inline; font-weight: 500; font-style: italic;" id="taskCreated"></p></h2>
-                <h2><img src="assets/_completeIcon.png" draggable="false" height="23px" width="23px">  Tasks completed:<p style="display: inline; font-weight: 500; font-style: italic;" id="taskCompleted"></p></h2>
+                <h2><img src="assets/_createTask.png" draggable="false" height="20px" width="20px">  Tasks created:  <p style="display: inline; font-weight: 500; font-style: italic;" id="taskCreated"></p></h2>
+                <h2><img src="assets/_completeIcon.png" draggable="false" height="23px" width="23px">  Tasks completed:  <p style="display: inline; font-weight: 500; font-style: italic;" id="taskCompleted"></p></h2>
                 <canvas id="tasksChart" width="400" height="150" style="background: #232323; border-radius: 10px; margin-bottom: 30px;"></canvas>
                 <h1 style="font-family: 'Excon', sans-serif; font-size: 35px; text-align: center;"><img src="assets/_settings.png" alt="Settings" width="30px" height="30px"> Options:</h1>
                 <center>
@@ -100,21 +100,26 @@
                     </div>
                     <br>
                     <input type="checkbox" id="checkbox" style="transform: scale(1.7);">
-                    <label for="checkbox" style="font-size: 20px;">Disables the auto-close of the settings panel.</label><br><br>
+                    <label for="checkbox" style="font-size: 20px;">Disables the auto-close of the settings panel.</label> <img class="aboutBeta" draggable="false" onclick="ShowInfoPanel('If enabled, this option will disables the auto-close of the settings panel.')" src="assets/_about.png" width="20px" height="20px" title="If enabled, this option will disables the auto-close of the settings panel."><br><br>
                     <input type="checkbox" id="characterLimit" style="transform: scale(1.7);">
-                    <label for="characterLimit" style="font-size: 20px;">Enable character limit.</label><br><br>
+                    <label for="characterLimit" style="font-size: 20px;">Enable character limit.</label> <img class="aboutBeta" draggable="false" onclick="ShowInfoPanel('If enabled, this option will set a character limit for Task names and version numbers.')" src="assets/_about.png" width="20px" height="20px" title="If enabled, this option will set a character limit for Task names and version numbers."><br><br>
                     <input type="checkbox" id="joinBeta" style="transform: scale(1.7);">
-                    <label for="joinBeta" style="font-size: 20px;">Join Beta Program for AI Assistant.</label> <img class="aboutBeta" draggable="false" onclick="ShowInfoPanel()" src="assets/_about.png" width="20px" height="20px" title="If enabled, this option will show the button for AI in Beta version"><br><br>
+                    <label for="joinBeta" style="font-size: 20px;">Join Beta Program for AI Assistant.</label> <img class="aboutBeta" draggable="false" onclick="ShowInfoPanel('If enabled, this option will show the button for AI in Beta version.')" src="assets/_about.png" width="20px" height="20px" title="If enabled, this option will show the button for AI in Beta version"><br><br>
                     <br>
                     <h2 style="text-align: center; font-family: 'Excon', sans-serif;"><img src="assets/_references.png" draggable="false" height="20px" width="20px"> Web References:</h2>
                     <div class="references">
                         <button id="repoGitBtn" title="Open Repository"><img src="assets/_github.png" width="20px" height="20px" draggable="false"> Open GitHub Repository</button>
                         <button id="licenseBtn" title="See License"><img src="assets/_license.png" width="20px" height="20px" draggable="false"> See License</button>
                     </div>
+                    <h4 style="color: white; display: flex; justify-content: end; margin-right: 170px; margin-top: -0px; font-weight: 300; font-style: italic;">Apache License</h4>
                     <h2 style="text-align: center; font-family: 'Excon', sans-serif;"><img src="assets/_help.png" draggable="false" height="20px" width="20px"> Need help?</h2>
                     <div class="needHelp">
-                        <button id="feedback" title="Leave a Feedback"><img src="assets/_feedback.png" width="20px" height="20px" draggable="false"> Leave a Feedback</button>
+                        <button id="feedback" title="Leave a Feedback"><img src="assets/_feedback.png" width="20px" height="20px" draggable="false"> Leave a Feedback <img src="assets/_arrowDown.png" alt="Icon arrow" style="display: inline;" width="20px" height="20px"></button>
                         <button id="contactUs" title="Contact Us"><img src="assets/_contact.png" width="20px" height="20px" draggable="false"> Contact Us</button>
+                    </div>
+                    <div class="feedbackSelection" id="feedbackSelection">
+                        <a id="bug" style="color: white; margin-left: 170px;">Write a Bug Report.</a><br>
+                        <a id="feedbackBtn" style="color: white; margin-left: 170px;">Leave a Feedback.</a>
                     </div>
                     <br>
                     <h2 style="text-align: center; font-family: 'Excon', sans-serif;"><img src="assets/_actions.png" draggable="false" height="20px" width="20px"> Actions:</h2>

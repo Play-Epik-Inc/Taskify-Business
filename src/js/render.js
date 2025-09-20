@@ -680,7 +680,7 @@ function CallAIFunction(input){
 
         if(index !== -1){
           window.todoManager.modifyTask(result.category, index);
-          appendMsg(`Modifying task: ${result.name}`, "AI");
+          appendMsg(`Editing task: ${result.name}`, "AI");
         }
         else
           appendMsg(`Task "${result.name}" not found in category "${result.category == "fuoriManutenzione"? "Out Of Maintenance" : "Maintenance Tasks"}"`, "AI");
@@ -784,12 +784,14 @@ function showBetaOptions(value){
 }
 
 //INFO ABOUT BETA PROGRAM
-function ShowInfoPanel(){ipcRenderer.invoke('show-alert', "If enabled, this option will show the button for AI in Beta version.")}
+function ShowInfoPanel(textToShow){ipcRenderer.invoke('show-alert', textToShow)}
 
 //WEB REFERENCES SECTION
 document.getElementById('repoGitBtn').addEventListener('click', () =>{shell.openExternal("https://github.com/Play-Epik-Inc/Taskify-Business");});
 document.getElementById('licenseBtn').addEventListener('click', () =>{shell.openExternal("https://github.com/Play-Epik-Inc/Taskify-Business/blob/main/LICENSE");});
 
 //NEED HELP SECTION
-document.getElementById('feedback').addEventListener('click', () =>{shell.openExternal("https://github.com/Play-Epik-Inc/Taskify-Business/issues/new?labels=bug");});
+document.getElementById('feedback').addEventListener('click', () =>{document.getElementById("feedbackSelection").classList.toggle("feedbackSelection")});
+document.getElementById("bug").addEventListener('click', () =>{shell.openExternal("https://github.com/Play-Epik-Inc/Taskify-Business/issues/new?labels=bug")})
+document.getElementById("feedbackBtn").addEventListener('click', () =>{shell.openExternal("https://github.com/Play-Epik-Inc/Taskify-Business/issues/new?labels=enhancement")})
 document.getElementById('contactUs').addEventListener('click', () =>{shell.openExternal("https://play-epik-incorporation.netlify.app/contactus#morehelp");});

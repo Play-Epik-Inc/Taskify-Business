@@ -25,7 +25,7 @@ Keep track of new versions of third-party tools and apps. You won't forget to up
   ![alt text](https://raw.githubusercontent.com/Play-Epik-Inc/Taskify-Business/refs/heads/main/src/assets/gitImages/git_slide3.png "Charts")
 
 
-Check more on: https://play-epik-incorporation.netlify.app/developers
+Check more <a href="https://play-epik-incorporation.netlify.app/developers#taskifyBusiness">here.</a>
 
 
 ## Tech Stack

@@ -35,14 +35,14 @@ def parse_input(text):
             })
         return {"tasks": tasks}
     
-    #CHECK FOR '/MODIFY' COMMAND
-    modify_match = re.match(
-        r"/modify\s+([^\s]+)\s+!category\s+([^\s]+)", text, re.IGNORECASE
+    #CHECK FOR '/EDIT' COMMAND
+    edit_match = re.match(
+        r"/edit\s+([^\s]+)\s+!category\s+([^\s]+)", text, re.IGNORECASE
     )
 
-    if modify_match:
-        name = modify_match.group(1)
-        category_raw = modify_match.group(2).lower()
+    if edit_match:
+        name = edit_match.group(1)
+        category_raw = edit_match.group(2).lower()
         if category_raw == "maintenance":
             category = "softwareComponents"
         else:
@@ -77,7 +77,7 @@ def parse_input(text):
     elif (text == "/help"):
         return '<br><b>Commands for AI Assistant:</b> <br><br> ' \
         '<b>/create</b> = Create a Task or a list of Tasks (<b>add a number in front of the command "/create"</b>), the syntax is: <i>/create TaskName previousVersion to newer newerVersion !category maintenace/out</i> <br>' \
-        '<br> <b>/modify</b> = Modify a Task, the syntax is: <i>/modify taskName !category maintenance/out </i> <br>' \
+        '<br> <b>/edit</b> = Edit a Task, the syntax is: <i>/edit taskName !category maintenance/out </i> <br>' \
         '<br> <b>/clear</b> or <b>/cls</b> = Clear the chat. <br> ' \
         '<br> <b>/delete</b> = Delete a Task, the syntax is <i>/delete TaskName !category maintenance/out</i>.'
     
