@@ -8,7 +8,7 @@
         <link href="https://api.fontshare.com/v2/css?f[]=supreme@1&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/boot.css">
     </head>
-    <body onload="OnLoad()">
+    <body>
         <center>
             <div id="loading">
                 <div class="logo"></div>
@@ -24,5 +24,8 @@
                 setTimeout(() =>{window.location.href = "index.html";}, 1100)
             }, 1500);
         }
+
+        //DOM ON LOAD
+        document.body.onload = OnLoad();
     </script>
 </html>

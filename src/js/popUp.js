@@ -1,7 +1,6 @@
 const { ipcRenderer } = require('electron')
 
 function OnLoad(){
-  //LOADING PHASE
   setTimeout(() =>{document.getElementById('loading').style.animation = "FadeOut 0.5s linear forwards";}, 100)
   setTimeout(() =>{
     document.getElementById('loading').style.display = "none";
@@ -24,7 +23,7 @@ function submitInput() {
   const previousVersion = document.getElementById('inputPV').value.trim();
   const newerVersion = document.getElementById('inputNV').value.trim();
 
-  //SEND NEW VALUES (IF MODIFIED)
+  //SEND NEW VALUES
   if(inputName)
     ipcRenderer.send('inputSend', inputName, "task_name")
   if(previousVersion)
@@ -69,11 +68,10 @@ function SetCharacterLimits(value){
     });
 }
 
-//GET CURRENT TASK DATAS 
-ipcRenderer.on('retrieveTaskName', (event, name) =>{
-  document.getElementById('inputName').value = name;
-});
-
+//GET TASK DATAS 
+ipcRenderer.on('retrieveTaskName', (event, name) =>{document.getElementById('inputName').value = name;});
 ipcRenderer.on('retrieveVersion', (event, version, elementID) => {document.getElementById(elementID).value = version;});
-
 ipcRenderer.on('retrieveSetting', (event, characterLimit) =>{SetCharacterLimits(characterLimit)});
+
+//DOM ON LOAD
+document.body.onload = OnLoad();

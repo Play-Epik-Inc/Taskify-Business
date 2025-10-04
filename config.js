@@ -170,12 +170,14 @@ function createWindow() {
   });
 
   mainWindow.webContents.on('before-input-event', (event, input) => {
-    if (input.key.toLowerCase() === 'r' && input.control && DEBUG) {
-      event.preventDefault()
-      mainWindow.reload()
+    if(DEBUG){
+      if (input.key.toLowerCase() === 'r' && input.control) {
+        event.preventDefault()
+        mainWindow.reload()
+      }
+      if (input.key.toLowerCase() === 'i' && input.control && input.shift) 
+        mainWindow.webContents.openDevTools()
     }
-    if (input.key.toLowerCase() === 'i' && input.control && input.shift && DEBUG) 
-      mainWindow.webContents.openDevTools()
   })
 
   mainWindow.on('closed', () => {mainWindow = null})
